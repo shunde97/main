@@ -47,6 +47,3 @@ include::../UserGuide.adoc[tag=Tutorial]
 |===
 
 include::../DeveloperGuide.adoc[tag=tutorial]
-
-== Use Cases
-include::../DeveloperGuide.adoc[tag=sarah]
