@@ -9,12 +9,13 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 
 /**
- * Lists all students in TAble.
+ * Sorts all students in TAble in alphabetical order and lists them.
+ * In the event there are multiple students with the same full name, the matric number will be used to sort the group
+ * of students with the same name in ascending order.
  */
 public class SortStudentCommand extends Command {
 
     public static final String COMMAND_WORD = "sortStudent";
-
 
 
     @Override

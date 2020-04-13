@@ -109,7 +109,7 @@ public class StudentTAble implements ReadOnlyStudent {
     }
 
     /**
-     * Sorts the list of students from {@code StudentTAble}.
+     * Sorts the list of students from {@code StudentTAble} in alphabetical order.
      */
     public void sortStudent() {
         students.sortStudents();
