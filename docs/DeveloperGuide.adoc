@@ -212,8 +212,8 @@ Reason for choosing Alternative 1:  From a user design perspective, a teaching a
 to check if the student has been added , or to identify which tutorial and modules the student has been added in. When the list gets bigger,
 he would have to scroll further to search for the student he is looking for or to check if a particular student has been added. With both `findStudent` and `findStudentMatricNumber` commands present,
 it would be more efficient to find the student using either of 2 commands than scrolling through the list of students. This also aligns with the project constraints that typing is preferred over mouse use.
-The functionality of sorting the list of students alphabetically via a command will be implemented in version 2.0 for a better user experience and a more presentable list of studenst.
-Currently the functionality that both `findStudent` and `findStudentMatricNumber` provides an efficient solution to identify students or check if they have been added.
+The functionality of sorting the list of students alphabetically via a command was implemented to bring about a better user experience and a more presentable list of students.
+However the functionality of both `findStudent` and `findStudentMatricNumber` provides an efficient solution to identify students or check if they have been added, without the need to sort the list of students.
 
 // end::student[]
 
