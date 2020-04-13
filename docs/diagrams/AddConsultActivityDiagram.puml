@@ -2,7 +2,8 @@
 start
 :User enters addConsultCommand;
 
-if () then ([all prefixes present])
+if () then ([all prefixes present and no
+multiple of the same prefix])
     :Parse prefixes;
     if () then ([all prefixes
     formatted correctly])
