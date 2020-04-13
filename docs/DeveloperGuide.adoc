@@ -614,6 +614,7 @@ Use case ends.
 +
 Use case resumes at step 2.
 
+// tag::sd[]
 [discrete]
 === Use case: Add student (U02)
 
@@ -758,6 +759,8 @@ Use case ends.
 * 2a. The list is empty.
 +
 Use case ends.
+
+// end::sd[]
 
 [discrete]
 === Use case: Add consult (U07)
