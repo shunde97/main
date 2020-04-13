@@ -31,7 +31,7 @@ quickly see information information regarding each student.  Any edit or deletio
 *** Contributed in the User Guide and Developer Guide for *Student* features, including adding relevant PlantUML diagrams in the Developer Guide to enhance comprehensibility of the codebase and the structure of the feature.
 *** Fix and Maintain Product Website https://github.com/AY1920S2-CS2103-W15-3/main/pull/227[#227]
 ** Summary of contributions:
-*** Created over [https://github.com/AY1920S2-CS2103-W15-3/main/pulls?q=is%3Apr+author%3Ashunde97[18 pull requests]] on GitHub
+*** Created over [https://github.com/AY1920S2-CS2103-W15-3/main/pulls?q=is%3Apr+author%3Ashunde97[19 pull requests]] on GitHub
 *** Reviewed over [https://github.com/AY1920S2-CS2103-W15-3/main/pulls?q=is%3Apr+reviewed-by%3Ashunde97[11 pull requests]]on GitHub
 
 == Contributions to the User Guide
