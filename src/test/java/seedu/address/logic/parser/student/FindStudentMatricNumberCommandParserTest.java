@@ -1,6 +1,7 @@
 package seedu.address.logic.parser.student;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_REPEATED_PREFIXES;
 import static seedu.address.logic.commands.CommandTestUtil.MATRICNUMBER_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_MATRICNUMBER_AMY;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -36,6 +37,9 @@ public class FindStudentMatricNumberCommandParserTest {
         // multiple whitespaces between keywords
         assertParseSuccess(parser, " \n " + MATRICNUMBER_DESC_AMY + " \n \t  \t",
                 expectedFindCommand);
+        assertParseFailure(parser, MATRICNUMBER_DESC_AMY + MATRICNUMBER_DESC_AMY,
+                String.format(MESSAGE_REPEATED_PREFIXES, FindStudentMatricNumberCommand.MESSAGE_USAGE));
+
     }
 
     @Test
