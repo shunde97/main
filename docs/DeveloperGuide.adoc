@@ -65,9 +65,9 @@ image::LogicClassDiagram.png[]
 [discrete]
 ==== How the architecture components interact with each other
 
-The _Sequence Diagram_ below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The _Sequence Diagram_ below shows how the components interact with each other for the scenario where the user issues the command `deleteStudent 1`.
 
-.Component interactions for `delete 1` command
+.Component interactions for `deleteStudent 1` command
 image::ArchitectureSequenceDiagram.png[]
 
 The sections below give more details of each component.
@@ -105,9 +105,9 @@ link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
 .  The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 .  In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("deleteStudent 1")` API call.
 
-.Interactions Inside the Logic Component for the `delete 1` Command
+.Interactions Inside the Logic Component for the `deleteStudent 1` Command
 image::DeleteSequenceDiagram.png[]
 
 NOTE: The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -148,6 +148,73 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 == Implementation
 
 This section describes some noteworthy details on how certain features are implemented.
+
+// tag::student[]
+=== Student feature (Written by Chiang Shun De)
+*Table* allows NUS SoC teaching assistants to track and record all students that they will be teaching, and maintain accurate details of the students, such as their name, matriculation number (henceforth referred to as matric number), emails, and tags which serves as remarks.  Changes to the student’s identity fields or deletion of student will also be reflected in the corresponding tutorial or consultation associated with the student.
+
+==== Implementation
+A `Student` class stores all relevant information of students. The main components are the students’ name, matric number, email address. `Student` can also store the user's remarks about the student through the tag parameter, which will sort the tags, if there are more than 1 tag, in alphabetical order. The class diagram below shows how all the different components interact to allow the student feature to function.
+
+.Class diagram of 'Student' feature
+image::StudentCommandClassDiagram.png[]
+
+Referencing the above class diagram, a `Student` contains 4 key attributes,
+the student's `name`, `matricNumber`, `email`, and a `set<Tag>` of `Tag`, which could be empty.
+The unique identifier of each student is the `matricNumber`, i.e. no two students in TAble can have the same matric number.
+
+
+The following sequence diagram illustrates the `findStudentMatricNumber` command, where a student which has the same matric number as the given matric number is found. The user must key in a correctly formatted matric number.
+
+.Sequence diagram of 'findStudentMatricNumber' command
+image::FindStudentMatricNumberSequenceDiagram.png[]
+
+Referencing the above sequence diagram, `LogicManager` executes the user's input and calls `parseCommand(input)` of `TAbleParser`.
+`TAbleParser` then returns a new `FindStudentMatricNumberCommandParser()`. Via `FindStudentMatricNumberCommandParser`, the provided matric number is parsed into a `MatricNumberContainsKeywordsPredicate` predicate and a `FindStudentMatricNumberCommand` object with the `MatricNumberContainsKeywordsPredicate` predicate is created.
+Calling `updateFilteredStudentList(predicate)`, the provided matric number is compared against the matric number of students currently in TAble and the student list is then updated with the list of students whose matric number matches the provided matric number.
+The command returns a formatted string which shows how many students match the given matric number, which indicate that the command is called successfully
+
+The following activity diagram illustrates what happens when the `addStudent` command is called to add a student into TAble.
+There is a need to check that the given matric number and email address does not already exist in TAble
+
+.Activity diagram for 'addStudent' command in the 'Student' feature
+image::AddStudentActivityDiagram.png[]
+
+Referencing the above activity diagram, TAble will first check that all prefixes are present and formatted correctly, and that no multiple of the same prefix exists.
+It will then proceed to check if the name, matric number, email address, and tags (if any) are formatted correctly.
+It will then create a `Student` object using the provided name, matric number, email address, and tags (if any) and then check if there is a duplicate student inside TAble.
+If there are no duplicate student inside TAble, it will check across every student in TAble to see if the provided matric number or email address already exists inside TAble.
+If the provided matric number or email address does not belong to any student inside TAble already, the created student is then added into TAble and a message is returned indicating success.
+The new student will appear in the TAble.
+
+==== Design Considerations
+
+===== Sorting Students
+
+[width="100%", cols="1, 5, 5"]
+|===
+||*Alternative 1 (Current Choice):* Sort the list of students only when user enters a sort command
+|*Alternative 2 :* Automatically sort the list of students whenever a student is added/edited/deleted
+
+|*Pros*
+|User can decide how they want the list to be sorted (e.g. by alphabetical order).
+|It is intuitive for the students to be sorted in alphabetical order, allows for easier referencing.
+
+|*Cons*
+|User have to type the sort command each time a new student is added or an existing student is edited/deleted.
+|User are not able to sort the list of students according to their preferences. It is quite inefficient as the system
+would have to sort the list of students every a new student is added or an existing student is edited/deleted.
+
+|===
+
+Reason for choosing Alternative 1:  From a user design perspective, a teaching assistant would scroll through the current list of students
+to check if the student has been added , or to identify which tutorial and modules the student has been added in. When the list gets bigger,
+he would have to scroll further to search for the student he is looking for or to check if a particular student has been added. With both `findStudent` and `findStudentMatricNumber` commands present,
+it would be more efficient to find the student using either of 2 commands than scrolling through the list of students. This also aligns with the project constraints that typing is preferred over mouse use.
+The functionality of sorting the list of students alphabetically via a command will be implemented in version 2.0 for a better user experience and a more presentable list of studenst.
+Currently the functionality that both `findStudent` and `findStudentMatricNumber` provides an efficient solution to identify students or check if they have been added.
+
+// end::student[]
 
 // tag::module[]
 === Module feature (Written by Nigel Neo)
@@ -731,10 +798,21 @@ Use case ends.
 * 1a. The matric number is not included.
 +
 [none]
-** 1a1. System shows an error message the the matric number to be searched cannot be empty.
+** 1a1. System shows an error message that indicates matric number to be searched cannot be empty.
 +
 [none]
 ** 1a2. User reenters the command with the matric number included.
++
+Use case resumes from step 2.
+
+[none]
+* 1b. User keys in more than one matric number.
++
+[none]
+** 1b1. System shows an error message that indicates not to repeat prefixes.
++
+[none]
+** 1b2. User reenters the command with only one matric number included.
 +
 Use case resumes from step 2.
 
