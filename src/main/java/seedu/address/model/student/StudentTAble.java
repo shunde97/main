@@ -108,6 +108,13 @@ public class StudentTAble implements ReadOnlyStudent {
         students.remove(key);
     }
 
+    /**
+     * Sorts the list of students from {@code StudentTAble}.
+     */
+    public void sortStudent() {
+        students.sortStudents();
+    }
+
 
     /**
      * Returns {@code student} from {@code TAble}.
