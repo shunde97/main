@@ -19,7 +19,7 @@ Any consults that are overdue are also highlighted in red, to remind the user to
 * *Major enhancement*: Added a calendar view for TAble.
 ** *What it does*:  Added a calendar view that displays all the `Consults`, `Tutorials` and `Reminders` for the user.
 ** *Highlights*: This calendar is able to show the number of  `Consults`, `Tutorials` and `Reminders` that occurs on a given day in one view, without any information being ommitted.
-** Credits: _{Code for the Calendar Window adapted from https://github.com/SirGoose3432/javafx-calendar/blob/master/src/FullCalendarView.java}_
+** Credits: _{Code for the Calendar Window adapted from https://github.com/SirGoose3432/javafx-calendar }_
 
 
 * *All code contributed*: [https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=hanchingyong&sort=groupTitle&sortWithin=title&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false[RepoSense - Code Report]]

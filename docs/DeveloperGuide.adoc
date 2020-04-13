@@ -1237,10 +1237,10 @@ These instructions only provide a starting point for testers to work on; testers
 
 . Command history
 
-.. Prerequisites: Successfully entered a command.
+.. Prerequisites: Successfully entered a command and the command box is selected.
 .. Test case: Press kbd:[↑] +
    Expected: Last successfully entered command shows up in the command box.
-.. Prerequisites: TAble just started up and no commands have been successfully entered.
+.. Prerequisites: TAble just started up, no commands have been successfully entered and the command box is selected.
 .. Test case: Press kbd:[↑] +
    Expected: No changes in command box.
 

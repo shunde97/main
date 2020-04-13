@@ -7,20 +7,20 @@
 
 == Overview
 
-TAble is your handy desktop app, optimized for TAs who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI)! Mark attendance, arrange consults, add module notes, set reminders and more with TAble! It has a GUI created with JavaFX and written in Java, and has about 10 kLoC.
+TAble is your handy desktop app, optimized for TAs who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI)! Mark attendance, arrange consults, add module notes, set reminders and more with TAble! It has a GUI created with JavaFX and written in Java, and has about 20 kLoC.
 
 == Summary of contributions
 
-* *Major enhancement*: added *the ability to insert Reminder description/date/time*
-** What it does: Allows the user to work with reminders using *TAble* to increase their productivity.
-** Justification: Teaching Assistants have many tasks to keep track of when managing a tutorial class (e.g. sending of administrative information to students, uploading of materials/attendance, keeping professor up to date etc). Therefore, it is important for the Teaching Assistants to have a way to keep track of their ongoing tasks so that they are not missed out.
-** Highlights: Reminders are auto sorted according to their due date and time with different colors to distinguish tasks that are due, in progress or done. Reminders that are due on the current day also shows the number of hours and minutes left in real time.
+* *Major enhancement*: Enabled support for *Reminders*
+** *What it does*: The user is able to add/edit/delete/done/snooze/find/list all `Reminders` which he has set in TAble.
+** *Justification*: Teaching Assistants have many tasks to keep track of when managing a tutorial class (e.g. sending of administrative information to students, uploading of materials/attendance, keeping professor up to date etc). Therefore, it is important for the Teaching Assistants to have a way to keep track of their ongoing tasks so that they are not missed out.
+** *Highlights*: Reminders are auto sorted according to their due date and time with different panel colors to distinguish tasks that are due, in progress or done. Reminders that are due on the current day also shows the number of hours and minutes left in real time.
 
-* _Minor enhancements_: +
+* *Minor enhancements*: +
 ** Added a feature that allows the user to navigate to previous commands using up/down keys
 *** Eliminates the need for user to retype repetitive commands (e.g. adding students to a tutorial). +
 ** Added an autocomplete feature that provides user with suggestions according to their current input
-*** Eliminates the need to type out long commands/prefixes which increases the user's productivity.
+*** Eliminates the need to type out long commands/prefixes which increases the user's experience and productivity.
 *** Credits: _https://controlsfx.bitbucket.io/[ControlsFX]_
 
 * *Code contributed*: [https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&sort=groupTitle&sortWithin=title&since=2020-02-14&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=CranstonYeo&tabRepo=AY1920S2-CS2103-W15-3%2Fmain%5Bmaster%5D[RepoSense - Code Report]]

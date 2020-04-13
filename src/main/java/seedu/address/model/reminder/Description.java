@@ -18,7 +18,7 @@ public class Description {
     private static final int CHAR_LIMIT = 80;
 
     public static final String MESSAGE_CONSTRAINTS =
-            String.format("Description should not be blank or exceeds %d characters", CHAR_LIMIT);
+            String.format("Description should not be blank or exceeds %d characters.", CHAR_LIMIT);
 
     public final String description;
 

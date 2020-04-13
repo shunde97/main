@@ -2,7 +2,8 @@
 start
 :User executes markPresent command;
 
-if () then ([all prefixes present])
+if () then ([all prefixes present and no
+multiple of the same prefix])
     if () then ([given week is valid])
         if () then ([tutorial exists in TAble])
             :Find student in the specified tutorial;
