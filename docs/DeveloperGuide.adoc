@@ -157,7 +157,7 @@ This section describes some noteworthy details on how certain features are imple
 ==== Implementation
 A `Student` class stores all relevant information of students. The main components are the students’ name, matric number, email address. `Student` can also store the user's remarks about the student through the tag parameter, which will sort the tags, if there are more than 1 tag, in alphabetical order. The class diagram below shows how all the different components interact to allow the student feature to function.
 
-.Class diagram of 'Student' feature
+.Class diagram of 'Student' feature, with only directly related classes displayed
 image::StudentCommandClassDiagram.png[]
 
 Referencing the above class diagram, a `Student` contains 4 key attributes,
